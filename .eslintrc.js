@@ -19,7 +19,12 @@ module.exports = {
     react: {
       pragma: 'React',
       version: 'detect'
-    }
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.vue'],
+      },
+    },
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -36,5 +41,7 @@ module.exports = {
   ],
   rules: {
     "react/jsx-filename-extension": [1, { "extensions": [".ts", "tsx"] }],
+    "import/extensions": 0
   },
+
 };
