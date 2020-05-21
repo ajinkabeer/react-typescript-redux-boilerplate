@@ -1,26 +1,24 @@
 import React from 'react';
-import {
-  Switch, Route, Redirect, Link,
-} from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom'
+import UserList from '../Users/UserList';
 
-function App(): JSX.Element {
+
+const App: React.SFC<{}> = () => {
   return (
-    <div className="App">
-      <div>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-      </div>
+    <>
+      <Link to="/">Home</Link>
+      <Link to="/users">Users</Link>
       <Switch>
         <Route exact path="/">
-          <h1>Home Page</h1>
+          <h1>Home</h1>
         </Route>
-        <Route exact path="/about">
-          <h1>About Page</h1>
+        <Route exact path="/users">
+          <h1>Users</h1>
+          <UserList />
         </Route>
-        <Redirect to="/" />
       </Switch>
-    </div>
+    </>
   );
-}
+};
 
 export default App;
