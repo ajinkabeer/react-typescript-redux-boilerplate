@@ -21,4 +21,5 @@ const UserList = (): JSX.Element => {
         </div>
     );
 };
-export default (UserList);
+
+export default UserList;

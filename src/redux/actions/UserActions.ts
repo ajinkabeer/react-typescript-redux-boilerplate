@@ -20,13 +20,17 @@ export type UserActions = UserGetAllActions;
 export const getAllUsers: ActionCreator<
     ThunkAction<Promise<any>, UserState, null, UserGetAllActions>
 > = () => async (dispatch: Dispatch) => {
-    try {
-        const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-        dispatch({
-            users: response.data,
-            type: UserActionTypes.GET_ALL,
-        });
-    } catch (err) {
-        console.error(err);
-    }
+  try {
+    const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+    dispatch({
+      users: response.data,
+      type: UserActionTypes.GET_ALL,
+    });
+  } catch (err) {
+    const response = 'Error';
+    dispatch({
+      users: response,
+      type: UserActionTypes.GET_ALL,
+    });
+  }
 };
